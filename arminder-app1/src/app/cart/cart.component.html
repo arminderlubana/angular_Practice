@@ -1,0 +1,54 @@
+<nav-bar></nav-bar>
+<div class="container">
+    <div class="row">
+        <h1>Shopping Cart</h1>
+    </div>
+
+    <!-- <div *ngFor="let singleItem of myCart">
+    <div class="row align-bottom cart">
+        <div class="col-lg-6">{{singleItem.name}}</div>
+        <div class="col-lg-3">{{singleItem.price}}</div>
+        <div class="col-lg-3"><button class="button-secondary"> Remove Item</button></div>
+
+    </div>
+</div> -->
+    <div class="row">
+        <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of myCart">
+                    <td>
+                        {{product.id}}
+                    </td>
+                    <td>
+                        {{product.name}}
+                    </td>
+                    <td>
+                        {{product.price}}
+                    </td>
+                    <td> <button class="button-secondary" (click)="removeCart(product.id)"> Remove Item</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row align-bottm">
+        <div class="col-lg-1">Total</div>
+        <div class="col-lg-5">{{cartTotal}}</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1"> <button class="btn btn-success" (click)="purchase()">Checkout</button></div>
+        <div class="col-lg-1"> <br></div>
+        <div class="col-lg-1"><button class=" btn button-primary" (click)="cancel()">Cancel</button></div>
+
+
+
+
+    </div>
+</div>

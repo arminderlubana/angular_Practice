@@ -1,0 +1,34 @@
+<nav-bar></nav-bar>
+
+<div>
+        <div *ngFor="let product of products" class="medium-4 columns">
+
+                <div>
+
+                        <div class="card-section">
+                                <h4 class="list-title" (click)="chooseProduct(product)">{{product.name}}</h4>
+                                <p>{{product.price }}</p>
+                                <p>{{product.description }}</p>
+                        </div>
+                </div>
+
+        </div>
+        <!-- <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let posts of blogPosts; let i = index">
+                                <td>{{i + 1 }}</td>
+                                <td>{{posts.title}}</td>
+                                <td>{{posts.content }}</td>  
+                                
+                        </tr>
+                    </tbody>
+                </table> -->
+</div>

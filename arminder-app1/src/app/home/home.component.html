@@ -1,0 +1,35 @@
+<nav-bar></nav-bar>
+<div>
+        <img class="hero" src="assets/monitor.jpg">
+</div>
+<div>
+        <div *ngFor="let posts of blogPosts" class="medium-4 columns">
+
+                <div>
+                       
+                        <div class="card-section">
+                                <h4 class="list-title" (click)="choosePost(posts)">{{posts.title}}</h4>
+                                <p>{{posts.content  }}</p>
+                        </div>
+                </div>
+
+        </div>
+        <!-- <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let posts of blogPosts; let i = index">
+                                <td>{{i + 1 }}</td>
+                                <td>{{posts.title}}</td>
+                                <td>{{posts.content }}</td>  
+                                
+                        </tr>
+                    </tbody>
+                </table> -->
+</div>

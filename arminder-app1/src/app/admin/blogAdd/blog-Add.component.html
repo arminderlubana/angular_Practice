@@ -1,0 +1,42 @@
+<div class="container ">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center">Add a Post </h3>
+        </div>
+        <div class="panel-body">
+            <form>
+                    <div class="row form-group">
+
+                    <label class="col-lg-2 control-label">Post Title </label>
+                    <div class="col-lg-10">
+                        <input type="text" [(ngModel)]="postTitle" name="postTitle" class="form-control" required #psTitle="ngModel">
+
+                    </div>
+                </div>
+                <div class="row form-group">
+
+                    <label class="col-lg-2 control-label">Post Content</label>
+                    <div class="col-lg-10">
+                        <input type="text" [(ngModel)]="content" name="postTitle" class="form-control" rows="3" required #psContent="ngModel">
+
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                <label class="col-lg-2 control-label">Select Image</label>
+                <div class="col-lg-10">
+                    <input type="file" (change)="fileLoad($event)"><br>
+                    <img *ngIf="imageSRC" [src]="imageSRC" alt="Image preview...">
+                </div>
+            </div> -->
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <div class="expanded button-group">
+                            <button class="btn btn-success" type="button" (click)="createPost()">Create Post</button>
+                            <button class="btn btn-secondary" type="button" (click)="cancel()"> Cancel </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div>
+    <div class="column text-left">
+        <a class="back-link" [routerLink]="['/shop']">
+            <h4>Go Back</h4>
+        </a>
+    </div>
+</div>
+
+<div>
+    <div class="column text-center">
+        <h2>{{singleProduct?.name}}</h2>
+    </div>
+</div>
+
+<div>
+    <div class="column text-justified">
+        <p>{{singleProduct?.price}}</p>
+    </div>
+</div>
+<div>
+    <div class="column text-justified">
+        <p>{{singleProduct?.description}}</p>
+    </div>
+</div>
+<div>
+    <div class="column text-justified">
+        <button class="btn btn-success" type="button" (click)="addProduct(singleProduct.id,singleProduct.name,singleProduct,price)">Add to Cart</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="top-bar">
+    
+    
+    <div class="top-bar-title">GGC Admin area</div>
+
+    <div class="top-bar-left">
+        <ul class="menuItems">
+            <li class="admin-menu"><a [routerLink]="['/admin/blog-admin']">Manage Blog</a></li>
+            <li class="admin-menu"><a [routerLink]="['/admin/product-admin']">Manage Product</a></li>
+        </ul>
+    </div>
+    <div *ngIf="theUser" >
+        <ul class="menuItems">
+            <li ><a (click)="logout()">Logout</a></li>
+            <li><a>{{theUser}} Logged in</a></li>
+        </ul>
+    </div>
+
+</div>
+<div><img src="assets/monitor.jpg"></div>
+<div>
+    <h2>Welcometo the Admin Area ofor the Gigabyte gaming Company.</h2>
+    <h3>this is for authorized users only !!!</h3>
+</div>

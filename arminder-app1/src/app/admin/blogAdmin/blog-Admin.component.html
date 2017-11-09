@@ -1,0 +1,111 @@
+<div>
+    <div class="container" style="width:100%">
+        
+            <div style="width:60%" >
+                <h2> GigaByte Gaming Company</h2>
+            </div>
+
+            <div style="width:20%">
+               
+                <ul class="inline">
+                    <li class="list-inline-item"><a (click)="chooseMode('add')">Add Post</a></li>
+                    <li *ngIf="menuChoice" class="list-inline-item"><a (click)="chooseMode('')">Manage Blog</a></li>
+                    <li class="list-inline-item"><a [routerLink]="['/admin']">Back to Admin</a></li>
+
+                </ul>
+            
+            </div>
+            <div style="width:20%">
+                <div *ngIf="theUser">
+                    <ul class="inline">
+                        <li class="admin-menu"><a (click)="logout()">Logout</a></li>
+                        <li class="admin-menu"><a>{{theUser}} Logged In</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        
+    </div>
+
+    
+
+    <div [ngSwitch]="menuChoice">
+        <div *ngSwitchCase="'add'">
+            <add-menu></add-menu>
+        </div>
+        <div *ngSwitchDefault class="container">
+            <!--    <div *ngIf="formDisplay">
+             <div class="" *ngFor="let posts of blogPosts">
+
+                    <div class="">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4>{{posts.title}}</h4>
+                            </div>
+                            <div class="panel-body">
+                                <p>{{posts.content | truncate: 140}}</p>
+                                <div>
+                                    <a class="button" (click)="editPost(posts)"> Edit</a>
+                                    <a class="button alert" (click)="deletePost(posts)">Delete</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   -->
+            <div *ngIf="formDisplay">
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let posts of blogPosts; let i = index">
+                            <td>{{i + 1 }}</td>
+                            <td>{{posts.title}}</td>
+                            <td>{{posts.content | truncate: 140}}</td>
+                            <td> <a class="button" (click)="editPost(posts)"> Edit</a></td>
+                            <td> <a class="button alert" (click)="deletePost(posts)">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="!formDisplay" class="row">
+                <form>
+                    <div class="form-horizontal">
+                        <fieldset>
+                            <legend>Add a Post</legend>
+
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Post Title </label>
+                                <div class="col-lg-10">
+                                    <input type="text" [(ngModel)]="singlePost.title" name="editTitle" class="form-control" required #psTitle="ngModel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-lg-2 control-label">Post Content</label>
+                                <div class="col-lg-10">
+                                    <textarea row="15" id="content" [(ngModel)]="singlePost.content" name="editcontent" class="form-control" required #psContent="ngModel"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <div class="expanded button-group">
+                                        <button class="btn btn-primary" type="button" [disabled]="!psTitle.valid || !psContent.valid" (click)="updatePost(singlePost)">Update Post</button>
+                                        <button class="btn btn-default" type="button" (click)="cancelEdit()"> Cancel </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
